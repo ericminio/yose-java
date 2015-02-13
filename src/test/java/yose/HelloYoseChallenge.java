@@ -5,11 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import support.HttpGetRequest;
 import support.HttpGetResponse;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import support.SunHttpServer;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -22,7 +18,8 @@ public class HelloYoseChallenge {
 
     @Before
     public void startServer() throws Exception {
-        server = new YoseServer( 8000 );
+        server = new SunHttpServer( 8000 );
+        server.setRoutes(new YoseRoutes());
         server.start();
         response = new HttpGetRequest( "http://localhost:8000/" ).open();
     }

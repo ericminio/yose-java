@@ -1,45 +1,12 @@
 package yose;
 
-import com.sun.net.httpserver.HttpServer;
+import java.util.Map;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
+public interface YoseServer {
 
-public class YoseServer {
+    void start();
 
-    private final HttpServer server;
+    void stop();
 
-    public YoseServer(int port) throws IOException {
-        server = HttpServer.create( new InetSocketAddress( port ), 0 );
-    }
-
-    public void start() {
-        server.createContext( "/ping", exchange -> {
-            exchange.getResponseHeaders().add( "content-type", "application/json" );
-            exchange.sendResponseHeaders( 200, 0 );
-            OutputStream body = exchange.getResponseBody();
-            body.write( "{\"alive\":true}".getBytes() );
-            body.close();
-            exchange.close();
-        } );
-        server.createContext( "/", exchange -> {
-            exchange.getResponseHeaders().add( "content-type", "text/html" );
-            exchange.sendResponseHeaders( 200, 0 );
-            OutputStream body = exchange.getResponseBody();
-            body.write( "Hello Yose".getBytes() );
-            body.close();
-            exchange.close();
-        } );
-        server.start();
-    }
-
-    public void stop() {
-        server.stop( 1 );
-    }
-
-    public static void main(String[] args) throws IOException {
-        YoseServer server = new YoseServer( 7000 );
-        server.start();
-    }
+    void setRoutes(Map<String, Endpoint> routes);
 }
