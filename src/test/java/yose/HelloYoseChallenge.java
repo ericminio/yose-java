@@ -3,25 +3,25 @@ package yose;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import support.HttpGetRequest;
-import support.HttpGetResponse;
+import support.HttpResponse;
 import support.SunHttpServer;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static support.HttpGetRequest.getResponseOf;
 
 public class HelloYoseChallenge {
 
     private YoseServer server;
-    private HttpGetResponse response;
+    private HttpResponse response;
 
     @Before
     public void startServer() throws Exception {
         server = new SunHttpServer( 8000 );
         server.setRoutes(new YoseRoutes());
         server.start();
-        response = new HttpGetRequest( "http://localhost:8000/" ).open();
+        response = getResponseOf( "http://localhost:8000/" );
     }
 
     @After
@@ -31,11 +31,11 @@ public class HelloYoseChallenge {
 
     @Test
     public void answersWithHtml() throws Exception {
-        assertThat( response.contentType(), equalTo( "text/html" ) );
+        assertThat( response.contentType, equalTo( "text/html" ) );
     }
 
     @Test
     public void answersWithExpectedResponse() throws Exception {
-        assertThat( response.body(), containsString( "Hello Yose" ) );
+        assertThat( response.body, containsString( "Hello Yose" ) );
     }
 }

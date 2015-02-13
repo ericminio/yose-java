@@ -6,16 +6,9 @@ import java.net.URL;
 
 public class HttpGetRequest {
 
-    private String uri;
-
-    public HttpGetRequest(String uri) {
-        this.uri = uri;
-    }
-
-
-    public HttpGetResponse open() throws IOException {
+    public static HttpResponse getResponseOf(String uri) throws IOException {
         URL url = new URL( uri );
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        return new HttpGetResponse( connection );
+        return HttpResponseBuilder.open( connection ).getResponse();
     }
 }
