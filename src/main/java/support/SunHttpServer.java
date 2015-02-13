@@ -2,7 +2,8 @@ package support;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
-import yose.*;
+import yose.Endpoint;
+import yose.YoseServer;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -36,6 +37,7 @@ public class SunHttpServer implements YoseServer {
     }
 
     private void send(HttpExchange exchange, Endpoint endpoint) throws IOException {
+        endpoint.setQuery( exchange.getRequestURI().getRawQuery() );
         exchange.getResponseHeaders().add( "content-type", endpoint.contentType() );
         exchange.sendResponseHeaders( 200, 0 );
         exchange.getResponseBody().write( endpoint.body().getBytes() );

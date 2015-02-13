@@ -13,4 +13,9 @@ public class HelloYose implements Endpoint {
     public String body() {
         return "Hello Yose";
     }
+
+    @Override
+    public void setQuery(String query) {
+
+    }
 }

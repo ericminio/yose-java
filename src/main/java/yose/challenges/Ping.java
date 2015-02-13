@@ -13,4 +13,9 @@ public class Ping implements Endpoint {
     public String body() {
         return "{\"alive\":true}";
     }
+
+    @Override
+    public void setQuery(String query) {
+
+    }
 }

@@ -4,9 +4,9 @@ import java.util.Map;
 
 public interface YoseServer {
 
+    void setRoutes(Map<String, Endpoint> routes);
+
     void start();
 
     void stop();
-
-    void setRoutes(Map<String, Endpoint> routes);
 }
