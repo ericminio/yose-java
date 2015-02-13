@@ -11,10 +11,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class PingChallenge {
+public class HelloYoseChallenge {
 
     private YoseServer server;
     private HttpGetResponse response;
@@ -23,7 +24,7 @@ public class PingChallenge {
     public void startServer() throws Exception {
         server = new YoseServer( 8000 );
         server.start();
-        response = new HttpGetRequest( "http://localhost:8000/ping" ).open();
+        response = new HttpGetRequest( "http://localhost:8000/" ).open();
     }
 
     @After
@@ -32,12 +33,12 @@ public class PingChallenge {
     }
 
     @Test
-    public void answersWithJson() throws Exception {
-        assertThat( response.contentType(), equalTo( "application/json" ) );
+    public void answersWithHtml() throws Exception {
+        assertThat( response.contentType(), equalTo( "text/html" ) );
     }
 
     @Test
     public void answersWithExpectedResponse() throws Exception {
-        assertThat( response.body(), equalTo( "{\"alive\":true}" ) );
+        assertThat( response.body(), containsString( "Hello Yose" ) );
     }
 }

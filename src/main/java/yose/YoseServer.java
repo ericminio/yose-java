@@ -23,6 +23,14 @@ public class YoseServer {
             body.close();
             exchange.close();
         } );
+        server.createContext( "/", exchange -> {
+            exchange.getResponseHeaders().add( "content-type", "text/html" );
+            exchange.sendResponseHeaders( 200, 0 );
+            OutputStream body = exchange.getResponseBody();
+            body.write( "Hello Yose".getBytes() );
+            body.close();
+            exchange.close();
+        } );
         server.start();
     }
 
@@ -31,7 +39,7 @@ public class YoseServer {
     }
 
     public static void main(String[] args) throws IOException {
-        YoseServer server = new YoseServer( 5000 );
+        YoseServer server = new YoseServer( 7000 );
         server.start();
     }
 }
