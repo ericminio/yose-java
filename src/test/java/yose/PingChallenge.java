@@ -8,7 +8,7 @@ import support.SunHttpServer;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static support.HttpGetRequest.getResponseOf;
+import static support.HttpGetRequest.get;
 
 public class PingChallenge {
 
@@ -20,7 +20,7 @@ public class PingChallenge {
         server = new SunHttpServer( 8000 );
         server.setRoutes( new YoseRoutes() );
         server.start();
-        response = getResponseOf( "http://localhost:8000/ping" );
+        response = get( "http://localhost:8000/ping" );
     }
 
     @After

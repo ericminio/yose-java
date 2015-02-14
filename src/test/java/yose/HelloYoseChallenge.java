@@ -9,7 +9,7 @@ import support.SunHttpServer;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static support.HttpGetRequest.getResponseOf;
+import static support.HttpGetRequest.get;
 
 public class HelloYoseChallenge {
 
@@ -21,7 +21,7 @@ public class HelloYoseChallenge {
         server = new SunHttpServer( 8000 );
         server.setRoutes(new YoseRoutes());
         server.start();
-        response = getResponseOf( "http://localhost:8000/" );
+        response = get( "http://localhost:8000/" );
     }
 
     @After
