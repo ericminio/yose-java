@@ -17,8 +17,8 @@ public class HttpResponseBuilder {
         return new HttpResponseBuilder( connection );
     }
 
-    public HttpResponse getResponse() throws IOException {
-        HttpResponse response = new HttpResponse();
+    public HttpResponseForTest getResponse() throws IOException {
+        HttpResponseForTest response = new HttpResponseForTest();
         response.contentType = connection.getHeaderField( "content-type" );
         response.body = readBody( connection );
         return response;

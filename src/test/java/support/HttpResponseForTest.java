@@ -1,6 +1,6 @@
 package support;
 
-public class HttpResponse {
+public class HttpResponseForTest {
 
     public String contentType;
     public String body;

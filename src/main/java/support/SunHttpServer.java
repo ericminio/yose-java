@@ -28,7 +28,7 @@ public class SunHttpServer implements YoseServer {
 
     @Override
     public void stop() {
-        server.stop( 1 );
+        server.stop(0);
     }
 
     @Override
@@ -37,11 +37,21 @@ public class SunHttpServer implements YoseServer {
     }
 
     private void send(HttpExchange exchange, Endpoint endpoint) throws IOException {
-        endpoint.setQuery( exchange.getRequestURI().getRawQuery() );
-        exchange.getResponseHeaders().add( "content-type", endpoint.contentType() );
-        exchange.sendResponseHeaders( 200, 0 );
-        exchange.getResponseBody().write( endpoint.body().getBytes() );
-        exchange.close();
+        HttpRequest request = buildRequest(exchange);
+        HttpResponse response = endpoint.handle(request);
+        sendResponse(exchange, response);
+    }
 
+    private HttpRequest buildRequest(HttpExchange exchange) {
+        HttpRequest request = new HttpRequest();
+        request.query = exchange.getRequestURI().getRawQuery();
+        return request;
+    }
+
+    private void sendResponse(HttpExchange exchange, HttpResponse response) throws IOException {
+        response.headers.forEach((header, value) -> exchange.getResponseHeaders().add(header, value));
+        exchange.sendResponseHeaders(response.code, 0);
+        exchange.getResponseBody().write(response.body.getBytes());
+        exchange.close();
     }
 }

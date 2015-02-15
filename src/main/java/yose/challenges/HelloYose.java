@@ -1,21 +1,17 @@
 package yose.challenges;
 
+import support.HttpRequest;
+import support.HttpResponse;
 import yose.Endpoint;
 
 public class HelloYose implements Endpoint {
 
     @Override
-    public String contentType() {
-        return "text/html";
-    }
-
-    @Override
-    public String body() {
-        return "Hello Yose";
-    }
-
-    @Override
-    public void setQuery(String query) {
-
+    public HttpResponse handle(HttpRequest request) {
+        HttpResponse response = new HttpResponse();
+        response.code = 200;
+        response.headers.put("content-type", "text/html");
+        response.body = "Hello Yose";
+        return response;
     }
 }

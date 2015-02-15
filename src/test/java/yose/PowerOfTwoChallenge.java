@@ -3,7 +3,7 @@ package yose;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import support.HttpResponse;
+import support.HttpResponseForTest;
 import support.SunHttpServer;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -13,7 +13,7 @@ import static support.HttpGetRequest.get;
 public class PowerOfTwoChallenge {
 
     private SunHttpServer server;
-    private HttpResponse response;
+    private HttpResponseForTest response;
 
     @Before
     public void startServer() throws Exception {
