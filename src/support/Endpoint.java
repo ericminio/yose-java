@@ -1,8 +1,5 @@
-package yose;
+package support;
 
-
-import support.HttpRequest;
-import support.HttpResponse;
 
 public interface Endpoint {
     HttpResponse handle(HttpRequest request);

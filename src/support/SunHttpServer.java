@@ -2,14 +2,12 @@ package support;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
-import yose.Endpoint;
-import yose.YoseServer;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.Map;
 
-public class SunHttpServer implements YoseServer {
+public class SunHttpServer implements Server {
 
     private final HttpServer server;
     private Map<String, Endpoint> routes;
@@ -32,7 +30,7 @@ public class SunHttpServer implements YoseServer {
     }
 
     @Override
-    public void setRoutes(Map<String, Endpoint> routes) {
+    public void serving(Map<String, Endpoint> routes) {
         this.routes = routes;
     }
 

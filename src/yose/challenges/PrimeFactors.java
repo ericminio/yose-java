@@ -2,7 +2,7 @@ package yose.challenges;
 
 import support.HttpRequest;
 import support.HttpResponse;
-import yose.Endpoint;
+import support.Endpoint;
 
 import java.util.ArrayList;
 import java.util.List;
