@@ -1,15 +1,15 @@
-package yose;
+package yose.app;
 
-import support.Endpoint;
+import http.Endpoint;
 import yose.challenges.HelloYose;
 import yose.challenges.Ping;
 import yose.challenges.PrimeFactors;
 
 import java.util.HashMap;
 
-public class YoseRoutes extends HashMap<String, Endpoint> {
+public class Routes extends HashMap<String, Endpoint> {
 
-    public YoseRoutes() {
+    public Routes() {
         put("/primeFactors", new PrimeFactors());
         put("/ping", new Ping());
         put("/", new HelloYose());

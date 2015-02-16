@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import support.HttpResponseForTest;
 import support.SunHttpServer;
-import yose.YoseRoutes;
-import support.Server;
+import yose.app.Routes;
+import http.Server;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -21,7 +21,7 @@ public class HelloYoseChallenge {
     @Before
     public void startServer() throws Exception {
         server = new SunHttpServer( 8000 );
-        server.serving(new YoseRoutes());
+        server.serving(new Routes());
         server.start();
         response = get( "http://localhost:8000/" );
     }

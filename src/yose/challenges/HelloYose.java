@@ -1,8 +1,8 @@
 package yose.challenges;
 
-import support.HttpRequest;
-import support.HttpResponse;
-import support.Endpoint;
+import http.HttpRequest;
+import http.HttpResponse;
+import http.Endpoint;
 
 public class HelloYose implements Endpoint {
 

@@ -2,6 +2,10 @@ package support;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
+import http.Endpoint;
+import http.HttpRequest;
+import http.HttpResponse;
+import http.Server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

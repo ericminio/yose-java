@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import support.HttpResponseForTest;
 import support.SunHttpServer;
-import yose.YoseRoutes;
+import yose.app.Routes;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -19,7 +19,7 @@ public class PowerOfTwoChallenge {
     @Before
     public void startServer() throws Exception {
         server = new SunHttpServer( 8000 );
-        server.serving(new YoseRoutes());
+        server.serving(new Routes());
         server.start();
         response = get( "http://localhost:8000/primeFactors?number=8" );
     }

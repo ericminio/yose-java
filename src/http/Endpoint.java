@@ -1,4 +1,4 @@
-package support;
+package http;
 
 
 public interface Endpoint {
