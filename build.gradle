@@ -24,3 +24,5 @@ dependencies {
 }
 
 mainClassName = 'Launcher'
+
+task stage(dependsOn: ['clean', 'installApp'])
