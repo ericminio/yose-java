@@ -25,4 +25,9 @@ dependencies {
 
 mainClassName = 'Launcher'
 
+run {
+    if (!project.hasProperty('port')) ext.port = 8080
+    args port
+}
+
 task stage(dependsOn: ['clean', 'installApp'])
