@@ -1,10 +1,12 @@
-package yose;
+package challenges;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import support.HttpResponse;
+import support.HttpResponseForTest;
 import support.SunHttpServer;
+import yose.YoseRoutes;
+import support.Server;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -13,13 +15,13 @@ import static support.HttpGetRequest.get;
 
 public class HelloYoseChallenge {
 
-    private YoseServer server;
-    private HttpResponse response;
+    private Server server;
+    private HttpResponseForTest response;
 
     @Before
     public void startServer() throws Exception {
         server = new SunHttpServer( 8000 );
-        server.setRoutes(new YoseRoutes());
+        server.serving(new YoseRoutes());
         server.start();
         response = get( "http://localhost:8000/" );
     }

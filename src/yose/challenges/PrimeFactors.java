@@ -1,6 +1,8 @@
 package yose.challenges;
 
-import yose.Endpoint;
+import support.HttpRequest;
+import support.HttpResponse;
+import support.Endpoint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,18 +14,21 @@ public class PrimeFactors implements Endpoint {
     private String decomposition;
 
     @Override
-    public void setQuery(String query) {
+    public HttpResponse handle(HttpRequest request) {
+        extractNumberFromQuery(request.query);
+        HttpResponse response = new HttpResponse();
+        response.code = 200;
+        response.headers.put("content-type", "application/json");
+        response.body = buildBody();
+        return response;
+    }
+
+    private void extractNumberFromQuery(String query) {
         number = Integer.parseInt( query.split( "[=]" )[ 1 ] );
         decomposition = decompose( number ).stream().map( prime -> prime.toString() ).collect( Collectors.joining( "," ) );
     }
 
-    @Override
-    public String contentType() {
-        return "application/json";
-    }
-
-    @Override
-    public String body() {
+    private String buildBody() {
         return "{\"number\":" + number + ",\"decomposition\":[" + decomposition + "]}";
     }
 

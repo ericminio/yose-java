@@ -4,12 +4,30 @@ apply plugin: 'application'
 sourceCompatibility = 1.8
 version = '1.0'
 
-repositories {
-    mavenCentral()
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+
+    test {
+        java {
+            srcDir 'test'
+        }
+    }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile fileTree(dir: 'lib/prod', include: ['*.jar'])
+    testCompile fileTree(dir: 'lib/test', include: ['*.jar'])
 }
 
 mainClassName = 'Launcher'
+
+run {
+    if (!project.hasProperty('port')) ext.port = 8080
+    args port
+}
+
+task stage(dependsOn: ['clean', 'installApp'])

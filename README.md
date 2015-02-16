@@ -1,1 +1,3 @@
-[![Build Status](https://travis-ci.org/ericminio/yose-java.svg)](https://travis-ci.org/ericminio/yose-java)
+[![Build Status](https://travis-ci.org/francoisperron/yose-java.svg)](https://travis-ci.org/francoisperron/yose-java)
+
+YoseTheGame

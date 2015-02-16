@@ -1,0 +1,1 @@
+web: ./build/install/yose-java/bin/yose-java $PORT

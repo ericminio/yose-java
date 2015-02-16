@@ -6,7 +6,7 @@ import java.net.URL;
 
 public class HttpGetRequest {
 
-    public static HttpResponse get(String uri) throws IOException {
+    public static HttpResponseForTest get(String uri) throws IOException {
         URL url = new URL( uri );
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         return HttpResponseBuilder.open( connection ).getResponse();
