@@ -5,8 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import support.HttpResponseForTest;
 import support.SunHttpServer;
-import yose.app.Routes;
-import http.Server;
+import yose.Routes;
+import yose.http.Server;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;

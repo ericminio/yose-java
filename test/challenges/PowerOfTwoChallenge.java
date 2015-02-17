@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import support.HttpResponseForTest;
 import support.SunHttpServer;
-import yose.app.Routes;
+import yose.Routes;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;

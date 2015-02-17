@@ -23,7 +23,7 @@ dependencies {
     testCompile fileTree(dir: 'lib/test', include: ['*.jar'])
 }
 
-mainClassName = 'yose.app.Launcher'
+mainClassName = 'Launcher'
 
 run {
     if (!project.hasProperty('port')) ext.port = 8080

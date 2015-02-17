@@ -1,6 +1,6 @@
-package yose.app;
+package yose;
 
-import http.Endpoint;
+import yose.http.Endpoint;
 import yose.challenges.HelloYose;
 import yose.challenges.Ping;
 import yose.challenges.PrimeFactors;

@@ -1,8 +1,8 @@
 package yose.challenges;
 
-import http.HttpRequest;
-import http.HttpResponse;
-import http.Endpoint;
+import yose.http.HttpRequest;
+import yose.http.HttpResponse;
+import yose.http.Endpoint;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,6 @@
-package yose.app;
-
-import http.Server;
+import yose.Routes;
+import yose.http.Server;
 import support.SunHttpServer;
-import yose.app.Routes;
 
 import java.io.IOException;
 
