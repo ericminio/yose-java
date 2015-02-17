@@ -3,6 +3,10 @@ language: java
 jdk:
   - oraclejdk8
 
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  
 deploy:
   provider: heroku
   api_key: d75f2dcabe885b4b88e4cfbd62fd3916ea3b3fbd
