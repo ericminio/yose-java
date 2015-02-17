@@ -1,3 +1,9 @@
 language: java
+
 jdk:
   - oraclejdk8
+
+deploy:
+  provider: heroku
+  api_key: d75f2dcabe885b4b88e4cfbd62fd3916ea3b3fbd
+  app: ericminio-yose-java
