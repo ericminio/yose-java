@@ -1,0 +1,11 @@
+body {
+    background-color: cornflowerblue;
+    margin: 0;
+    padding: 0;
+}
+
+#astroport-name {
+    background-color: white;
+    padding: 2%;
+    margin: 0;
+}

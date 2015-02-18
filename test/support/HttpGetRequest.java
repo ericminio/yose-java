@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.stream.Collectors;
 
 public class HttpGetRequest {
 
@@ -27,11 +28,6 @@ public class HttpGetRequest {
 
     private static String readBody(HttpURLConnection connection) throws IOException {
         BufferedReader br = new BufferedReader( new InputStreamReader( (connection.getInputStream()) ) );
-        StringBuilder sb = new StringBuilder();
-        String output;
-        while ((output = br.readLine()) != null) {
-            sb.append( output );
-        }
-        return sb.toString();
+        return br.lines().collect( Collectors.joining( "\n" ) );
     }
 }

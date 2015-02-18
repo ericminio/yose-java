@@ -1,0 +1,21 @@
+package yose.http;
+
+import yose.support.FileContent;
+
+public class CssProvider implements Endpoint {
+
+    private String fileName;
+
+    public CssProvider(String fileName) {
+        this.fileName = fileName;
+    }
+
+    @Override
+    public HttpResponse handle(HttpRequest request) {
+        HttpResponse response = new HttpResponse();
+        response.code = 200;
+        response.headers.put( "content-type", "text/css" );
+        response.body = FileContent.of( fileName );
+        return response;
+    }
+}
