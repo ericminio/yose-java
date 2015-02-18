@@ -1,14 +1,37 @@
 package support;
 
+import yose.http.HttpResponse;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class HttpGetRequest {
 
-    public static HttpResponseForTest get(String uri) throws IOException {
+    public static HttpResponse get(String uri) throws IOException {
         URL url = new URL( uri );
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        return HttpResponseBuilder.open( connection ).getResponse();
+
+        return readResponse( connection );
+    }
+
+    private static HttpResponse readResponse(HttpURLConnection connection) throws IOException {
+        HttpResponse response = new HttpResponse();
+        response.headers.put( "content-type", connection.getHeaderField( "content-type" ));
+        response.code = connection.getResponseCode();
+        response.body = readBody( connection );
+        return response;
+    }
+
+    private static String readBody(HttpURLConnection connection) throws IOException {
+        BufferedReader br = new BufferedReader( new InputStreamReader( (connection.getInputStream()) ) );
+        StringBuilder sb = new StringBuilder();
+        String output;
+        while ((output = br.readLine()) != null) {
+            sb.append( output );
+        }
+        return sb.toString();
     }
 }
