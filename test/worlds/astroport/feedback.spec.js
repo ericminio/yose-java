@@ -1,4 +1,5 @@
-require('../../../src/yose/worlds/astroport/astroport.js')
+require('../../../src/yose/worlds/astroport/astroport.js');
+var astroport = require('./common.js');
 var jsdom = require('jsdom').jsdom;
 
 describe('Feedback', function() {
@@ -6,13 +7,7 @@ describe('Feedback', function() {
     var document;
 
     beforeEach(function() {
-        document = jsdom(
-                '<input id="ship" value="Goldorak"/>' +
-                '<section id="gate-1" class="free gate">' +
-                '<label id="ship-1">None</label>' +
-                '</section>' +
-                '<label id="info" class="hidden box"></label>'
-        );
+        document = jsdom(astroport.withOneGate);
         new Docker(document).dock();
     });
 
