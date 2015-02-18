@@ -1,4 +1,4 @@
-package yose.challenges;
+package yose.worlds.primefactors;
 
 import yose.http.HttpRequest;
 import yose.http.HttpResponse;

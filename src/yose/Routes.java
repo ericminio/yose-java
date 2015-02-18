@@ -1,10 +1,10 @@
 package yose;
 
-import yose.challenges.Astroport;
+import yose.worlds.astroport.Astroport;
 import yose.http.Endpoint;
-import yose.challenges.HelloYose;
-import yose.challenges.Ping;
-import yose.challenges.PrimeFactors;
+import yose.worlds.start.HelloYose;
+import yose.worlds.start.Ping;
+import yose.worlds.primefactors.PrimeFactors;
 
 import java.util.HashMap;
 

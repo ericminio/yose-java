@@ -1,4 +1,4 @@
-package yose.challenges;
+package yose.worlds.start;
 
 import yose.http.HttpRequest;
 import yose.http.HttpResponse;
