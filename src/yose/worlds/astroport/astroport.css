@@ -9,3 +9,30 @@ body {
     padding: 2%;
     margin: 0;
 }
+
+#gates {
+    margin: 2%;
+    padding: 0;
+}
+
+.gate, .box {
+    border: black 1px solid;
+    border-radius: 7px;
+    padding: 2%;
+
+    display: inline-block;
+    width: 300px;
+}
+
+.gate {
+    margin-bottom: 2%;
+}
+
+.free {
+    background-color: #f3f3f3;
+}
+
+.ship-label {
+    font-weight: 700;
+    display: block;
+}
