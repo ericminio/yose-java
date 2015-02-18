@@ -1,32 +1,21 @@
 package worlds.primefactors;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import support.SunHttpServer;
-import yose.Routes;
+import support.YoseChallenge;
 import yose.http.HttpResponse;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static support.HttpGetRequest.get;
 
-public class PowerOfTwoChallenge {
+public class PowerOfTwoChallenge extends YoseChallenge {
 
-    private SunHttpServer server;
     private HttpResponse response;
 
     @Before
-    public void startServer() throws Exception {
-        server = new SunHttpServer( 8000 );
-        server.serving( new Routes() );
-        server.start();
+    public void decompositionRequest() throws Exception {
         response = get( "http://localhost:8000/primeFactors?number=8" );
-    }
-
-    @After
-    public void stopServer() {
-        server.stop();
     }
 
     @Test

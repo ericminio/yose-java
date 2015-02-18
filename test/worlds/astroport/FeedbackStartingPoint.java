@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 import static org.testinfected.hamcrest.dom.DomMatchers.hasClassName;
 import static org.testinfected.hamcrest.dom.DomMatchers.hasUniqueSelector;
 
-public class FeedbackChallengeElements {
+public class FeedbackStartingPoint {
 
     Element view;
 

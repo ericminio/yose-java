@@ -1,32 +1,21 @@
 package worlds.start;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import support.SunHttpServer;
-import yose.Routes;
+import support.YoseChallenge;
 import yose.http.HttpResponse;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static support.HttpGetRequest.get;
 
-public class PingChallenge {
+public class PingChallenge extends YoseChallenge {
 
-    private SunHttpServer server;
     private HttpResponse response;
 
     @Before
-    public void startServer() throws Exception {
-        server = new SunHttpServer( 8000 );
-        server.serving( new Routes() );
-        server.start();
+    public void pingRequest() throws Exception {
         response = get( "http://localhost:8000/ping" );
-    }
-
-    @After
-    public void stopServer() {
-        server.stop();
     }
 
     @Test

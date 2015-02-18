@@ -1,34 +1,22 @@
 package worlds.astroport;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import support.SunHttpServer;
-import yose.Routes;
+import support.YoseChallenge;
 import yose.http.HttpResponse;
-import yose.http.Server;
 import yose.support.FileContent;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static support.HttpGetRequest.get;
 
-public class AstroportCssTest {
+public class AstroportCssTest extends YoseChallenge {
 
-    private Server server;
     private HttpResponse response;
 
     @Before
-    public void startServer() throws Exception {
-        server = new SunHttpServer( 8000 );
-        server.serving( new Routes() );
-        server.start();
+    public void cssRequest() throws Exception {
         response = get( "http://localhost:8000/astroport.css" );
-    }
-
-    @After
-    public void stopServer() {
-        server.stop();
     }
 
     @Test

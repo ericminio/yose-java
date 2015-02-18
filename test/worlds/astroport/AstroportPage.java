@@ -7,28 +7,22 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import support.SunHttpServer;
-import yose.Routes;
+import support.YoseChallenge;
 
 import static org.hamcrest.CoreMatchers.not;
 
-public class NameChallenge {
+public class AstroportPage extends YoseChallenge {
 
-    private SunHttpServer server;
     private AsyncWebDriver browser;
 
     @Before
-    public void startServer() throws Exception {
-        server = new SunHttpServer( 8000 );
-        server.serving( new Routes() );
-        server.start();
+    public void visitAstroport() throws Exception {
         browser = new AsyncWebDriver( new UnsynchronizedProber(), new FirefoxDriver() );
         browser.navigate().to( "http://localhost:8000/astroport" );
     }
 
     @After
-    public void stopServer() {
-        server.stop();
+    public void closeBrowser() {
         browser.quit();
     }
 
@@ -36,5 +30,12 @@ public class NameChallenge {
     public void displaysAstroportName() {
         browser.element( By.id( "astroport-name" ) ).assertExists();
         browser.element( By.id( "astroport-name" ) ).assertText( not( "" ) );
+    }
+
+    @Test
+    public void displayTheGates() {
+        browser.element( By.cssSelector( "#gate-1 #ship-1" ) ).assertExists();
+        browser.element( By.cssSelector( "#gate-2 #ship-2" ) ).assertExists();
+        browser.element( By.cssSelector( "#gate-3 #ship-3" ) ).assertExists();
     }
 }
