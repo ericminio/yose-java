@@ -8,7 +8,13 @@ describe('Docker', function() {
     });
 
     it('docks the given ship at first gate', function() {
-        var document = jsdom('<input id="ship" value="Goldorak"/><label id="ship-1">None</label>');
+        var document = jsdom(
+                '<input id="ship" value="Goldorak"/>' +
+                '<section id="gate-1" class="free gate">' +
+                '<label id="ship-1">None</label>' +
+                '</section>' +
+                '<label id="info"></label>'
+        );
         new Docker(document).dock();
 
         expect(document.getElementById('ship-1').innerHTML).toEqual('Goldorak');

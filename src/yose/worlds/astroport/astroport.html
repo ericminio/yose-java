@@ -32,11 +32,14 @@
 
     <section id="docker" class="box">
         <label for="ship">Ship</label>
-        <input type="text" id="ship" />
+        <input type="text" id="ship" oninput="hideInfo(document);"/>
 
         <button id="dock" onclick="new Docker(document).dock();">Dock</button>
     </section>
 
+    <section id="info" class="box hidden">
+        Info box
+    </section>
 
 </body>
 </html>
