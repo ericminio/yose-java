@@ -31,12 +31,15 @@ public class FeedbackChallenge {
     }
 
     @Test
-    public void hideInfoWhenDockingANewShip() {
+    public void displaysInfoBoxWhenAppropriate() {
+        browser.element( By.cssSelector( "#info.hidden" ) ).assertExists();
+
         browser.element( By.cssSelector( "input#ship" ) ).type( "Faucon" );
         browser.element( By.cssSelector( "button#dock" ) ).click();
+        browser.element( By.cssSelector( "#info.hidden" ) ).assertDoesNotExist();
+
         browser.element( By.cssSelector( "input#ship" ) ).clear();
         browser.element( By.cssSelector( "input#ship" ) ).type( "Goldorak" );
-
         browser.element( By.cssSelector( "#info.hidden" ) ).assertExists();
     }
 }
