@@ -1,5 +1,15 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:0.7"
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: "com.moowork.node"
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -31,3 +41,5 @@ run {
 }
 
 task stage(dependsOn: ['clean', 'installApp'])
+
+task ci(dependsOn: ['clean', 'test', 'npm_install', 'npm_test'])

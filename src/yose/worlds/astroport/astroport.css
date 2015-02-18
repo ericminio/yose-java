@@ -36,3 +36,8 @@ body {
     font-weight: 700;
     display: block;
 }
+
+#docker {
+    background-color: white;
+    margin: 2%;
+}

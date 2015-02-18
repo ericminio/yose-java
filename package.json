@@ -1,0 +1,28 @@
+{
+    "name": "yose-java",
+    "version": "1.0.0",
+    "description": "use me to run js tests",
+    "scripts": {
+        "test": "node_modules/jasmine-node/bin/jasmine-node test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ericminio/yose-java.git"
+    },
+    "keywords": [
+        "yose",
+        "yosethegame",
+        "java",
+        "javascript"
+    ],
+    "author": "Eric Mignot",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ericminio/yose-java/issues"
+    },
+    "homepage": "https://github.com/ericminio/yose-java",
+    "devDependencies": {
+        "jasmine-node": "^1.14.5",
+        "jsdom": "^1.2.1"
+    }
+}
