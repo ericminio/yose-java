@@ -1,4 +1,4 @@
-package challenges;
+package worlds.astroport;
 
 import com.objogate.wl.UnsynchronizedProber;
 import com.objogate.wl.web.AsyncWebDriver;
@@ -12,7 +12,7 @@ import yose.Routes;
 
 import static org.hamcrest.CoreMatchers.not;
 
-public class AstroportChallenge {
+public class NameChallenge {
 
     private SunHttpServer server;
     private AsyncWebDriver browser;

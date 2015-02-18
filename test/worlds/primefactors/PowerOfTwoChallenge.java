@@ -1,4 +1,4 @@
-package challenges;
+package worlds.primefactors;
 
 import org.junit.After;
 import org.junit.Before;
