@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface Server {
 
-    void serving(Map<String, Endpoint> routes);
+    void serving(Map<HttpRequestMatcher, Endpoint> routes);
 
     void start();
 
