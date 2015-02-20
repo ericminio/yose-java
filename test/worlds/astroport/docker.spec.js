@@ -1,4 +1,4 @@
-require('../../../src/yose/worlds/astroport/astroport.js');
+require('../../../src/yose/worlds/astroport/docker.js');
 var astroport = require('./common.js');
 var jsdom = require('jsdom').jsdom;
 

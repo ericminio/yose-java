@@ -16,7 +16,7 @@ public class JsTest extends YoseChallenge {
 
     @Before
     public void jsRequest() throws Exception {
-        response = get( "http://localhost:8000/astroport/astroport.js" );
+        response = get( "http://localhost:8000/astroport/docker.js" );
     }
 
     @Test
@@ -31,6 +31,6 @@ public class JsTest extends YoseChallenge {
 
     @Test
     public void answersWithExpectedResponse() throws Exception {
-        assertThat( response.body, equalTo( FileContent.of( "src/yose/worlds/astroport/astroport.js" ) ) );
+        assertThat( response.body, equalTo( FileContent.of( "src/yose/worlds/astroport/docker.js" ) ) );
     }
 }
