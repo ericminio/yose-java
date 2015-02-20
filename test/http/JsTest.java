@@ -1,4 +1,4 @@
-package worlds.astroport;
+package http;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,13 +10,13 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static support.HttpGetRequest.get;
 
-public class AstroportCssTest extends YoseChallenge {
+public class JsTest extends YoseChallenge {
 
     private HttpResponse response;
 
     @Before
-    public void cssRequest() throws Exception {
-        response = get( "http://localhost:8000/astroport.css" );
+    public void jsRequest() throws Exception {
+        response = get( "http://localhost:8000/astroport/astroport.js" );
     }
 
     @Test
@@ -25,12 +25,12 @@ public class AstroportCssTest extends YoseChallenge {
     }
 
     @Test
-    public void answersWithCss() throws Exception {
-        assertThat( response.contentType(), equalTo( "text/css" ) );
+    public void answersWithJs() throws Exception {
+        assertThat( response.contentType(), equalTo( "application/javascript" ) );
     }
 
     @Test
     public void answersWithExpectedResponse() throws Exception {
-        assertThat( response.body, equalTo( FileContent.of( "src/yose/worlds/astroport/astroport.css" ) ) );
+        assertThat( response.body, equalTo( FileContent.of( "src/yose/worlds/astroport/astroport.js" ) ) );
     }
 }
