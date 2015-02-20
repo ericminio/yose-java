@@ -1,14 +1,14 @@
 package yose.http;
 
-public class RequestWithPath implements HttpRequestMatcher {
+public class PathEqualTo implements HttpRequestMatcher {
 
     public static HttpRequestMatcher withPathEqualTo(String path) {
-        return new RequestWithPath(path);
+        return new PathEqualTo(path);
     }
 
     private String expected;
 
-    public RequestWithPath(String path) {
+    public PathEqualTo(String path) {
         this.expected = path;
     }
 

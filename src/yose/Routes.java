@@ -12,7 +12,7 @@ import yose.worlds.start.Ping;
 import java.util.HashMap;
 
 import static yose.http.PathEndingWith.withPathEndingWith;
-import static yose.http.RequestWithPath.withPathEqualTo;
+import static yose.http.PathEqualTo.withPathEqualTo;
 
 public class Routes extends HashMap<HttpRequestMatcher, Endpoint> {
 
