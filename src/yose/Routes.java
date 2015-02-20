@@ -1,9 +1,6 @@
 package yose;
 
-import yose.http.HttpRequestMatcher;
-import yose.http.Endpoint;
-import yose.http.CssProvider;
-import yose.http.JsProvider;
+import yose.http.*;
 import yose.worlds.astroport.Astroport;
 import yose.worlds.primefactors.PrimeFactors;
 import yose.worlds.start.Home;
@@ -23,4 +20,5 @@ public class Routes extends HashMap<HttpRequestMatcher, Endpoint> {
         put( withPathEqualTo( "/ping" ), new Ping() );
         put( withPathEqualTo( "/" ), new Home() );
     }
+
 }

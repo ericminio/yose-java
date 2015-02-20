@@ -3,6 +3,7 @@ package support;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import yose.Routes;
+import yose.http.Router;
 
 public class YoseChallenge {
 
@@ -11,7 +12,7 @@ public class YoseChallenge {
     @BeforeClass
     public static void startServer() throws Exception {
         server = new SunHttpServer( 8000 );
-        server.serving( new Routes() );
+        server.useRouter( Router.routing( new Routes() ) );
         server.start();
     }
 

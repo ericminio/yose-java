@@ -6,12 +6,11 @@ import yose.http.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.Map;
 
 public class SunHttpServer implements Server {
 
     private final HttpServer server;
-    private Map<HttpRequestMatcher, Endpoint> routes;
+    private Router router;
 
     public SunHttpServer(int port) throws IOException {
         server = HttpServer.create( new InetSocketAddress( port ), 0 );
@@ -31,24 +30,14 @@ public class SunHttpServer implements Server {
     }
 
     @Override
-    public void serving(Map<HttpRequestMatcher, Endpoint> routes) {
-        this.routes = routes;
+    public void useRouter(Router router) {
+        this.router = router;
     }
 
     private void handle(HttpExchange exchange) throws IOException {
         HttpRequest request = buildRequest( exchange );
-        Endpoint endpoint = findEndpoint( request );
-        HttpResponse response = endpoint.handle( request );
-
-        response.headers.forEach( (header, value) -> exchange.getResponseHeaders().add( header, value ) );
-        exchange.sendResponseHeaders( response.code, 0 );
-        exchange.getResponseBody().write( response.body.getBytes() );
-        exchange.close();
-    }
-
-    private Endpoint findEndpoint(HttpRequest request) {
-        return routes.entrySet().stream().filter( r -> r.getKey().matches( request ) )
-                     .findFirst().get().getValue();
+        HttpResponse response = router.firstEndpointMatching( request ).handle( request );
+        sendResponse( exchange, response );
     }
 
     private HttpRequest buildRequest(HttpExchange exchange) {
@@ -58,4 +47,10 @@ public class SunHttpServer implements Server {
         return request;
     }
 
+    private void sendResponse(HttpExchange exchange, HttpResponse response) throws IOException {
+        response.headers.forEach( (header, value) -> exchange.getResponseHeaders().add( header, value ) );
+        exchange.sendResponseHeaders( response.code, 0 );
+        exchange.getResponseBody().write( response.body.getBytes() );
+        exchange.close();
+    }
 }
