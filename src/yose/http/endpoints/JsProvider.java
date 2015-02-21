@@ -1,5 +1,8 @@
-package yose.http;
+package yose.http.endpoints;
 
+import yose.http.Endpoint;
+import yose.http.HttpRequest;
+import yose.http.HttpResponse;
 import yose.support.FileContent;
 
 public class JsProvider implements Endpoint {

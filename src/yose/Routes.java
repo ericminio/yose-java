@@ -1,8 +1,8 @@
 package yose;
 
-import yose.http.CssProvider;
 import yose.http.Endpoint;
-import yose.http.JsProvider;
+import yose.http.endpoints.CssProvider;
+import yose.http.endpoints.JsProvider;
 import yose.http.routing.Route;
 import yose.worlds.astroport.Astroport;
 import yose.worlds.primefactors.PrimeFactors;
