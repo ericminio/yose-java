@@ -1,4 +1,7 @@
-package yose.http;
+package yose.http.routing;
+
+import yose.http.Endpoint;
+import yose.http.HttpRequest;
 
 import java.util.Map;
 

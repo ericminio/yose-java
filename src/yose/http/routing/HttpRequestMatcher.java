@@ -1,4 +1,6 @@
-package yose.http;
+package yose.http.routing;
+
+import yose.http.HttpRequest;
 
 public interface HttpRequestMatcher {
 

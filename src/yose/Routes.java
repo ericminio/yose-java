@@ -1,9 +1,9 @@
 package yose;
 
-import yose.http.CssProvider;
+import yose.http.endpoints.CssProvider;
 import yose.http.Endpoint;
-import yose.http.HttpRequestMatcher;
-import yose.http.JsProvider;
+import yose.http.routing.HttpRequestMatcher;
+import yose.http.endpoints.JsProvider;
 import yose.worlds.astroport.Astroport;
 import yose.worlds.primefactors.PrimeFactors;
 import yose.worlds.start.Home;
@@ -11,8 +11,8 @@ import yose.worlds.start.Ping;
 
 import java.util.HashMap;
 
-import static yose.http.PathEndingWith.withPathEndingWith;
-import static yose.http.PathEqualTo.withPathEqualTo;
+import static yose.http.routing.PathEndingWith.withPathEndingWith;
+import static yose.http.routing.PathEqualTo.withPathEqualTo;
 
 public class Routes extends HashMap<HttpRequestMatcher, Endpoint> {
 

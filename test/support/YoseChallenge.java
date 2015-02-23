@@ -3,7 +3,7 @@ package support;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import yose.Routes;
-import yose.http.Router;
+import yose.http.routing.Router;
 
 public class YoseChallenge {
 

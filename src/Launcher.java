@@ -1,6 +1,6 @@
 import support.SunHttpServer;
 import yose.Routes;
-import yose.http.Router;
+import yose.http.routing.Router;
 import yose.http.Server;
 
 import java.io.IOException;
