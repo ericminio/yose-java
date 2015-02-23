@@ -2,8 +2,10 @@ package yose.http.routing;
 
 import yose.http.Endpoint;
 import yose.http.HttpRequest;
+import yose.http.endpoints.NotFound;
 
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class Router {
 
@@ -18,7 +20,9 @@ public class Router {
     }
 
     public Endpoint firstEndpointMatching(HttpRequest request) {
-        return routes.entrySet().stream().filter( r -> r.getKey().matches( request ) )
-                .findFirst().get().getValue();
+        if (routes.entrySet().stream().filter( r -> r.getKey().matches( request ) ).count() == 0) {
+            return new NotFound();
+        }
+        return routes.entrySet().stream().filter( r -> r.getKey().matches( request ) ).findFirst().get().getValue();
     }
 }
