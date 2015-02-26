@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -n "`curl -s https://ericminio-yose-java.herokuapp.com/any`" ]
+if [ -n "`curl -s https://ericminio-yose-java.herokuapp.com/ping`" ]
 then
 echo "App online :)"
 exit 0
