@@ -15,4 +15,4 @@ deploy:
   app: ericminio-yose-java
 
 after_deploy:
-  - ./test.deploy.sh
+  - sh -e test.deploy.sh
