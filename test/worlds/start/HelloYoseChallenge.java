@@ -26,7 +26,7 @@ public class HelloYoseChallenge extends YoseChallenge {
 
     @Test
     public void answersWithHtml() throws Exception {
-        assertThat( response.contentType(), equalTo( "text/html" ) );
+        assertThat( response.contentType(), containsString( "text/html" ) );
     }
 
     @Test

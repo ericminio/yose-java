@@ -3,21 +3,22 @@ package support;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import yose.Routes;
+import yose.http.YoseServer;
 import yose.http.routing.Router;
 
 public class YoseChallenge {
 
-    private static SunHttpServer server;
+    private static YoseServer yoseServer;
 
     @BeforeClass
     public static void startServer() throws Exception {
-        server = new SunHttpServer( 8000 );
-        server.useRouter( Router.routing( new Routes() ) );
-        server.start();
+        yoseServer = new JettyServer( 8000 );
+        yoseServer.useRouter( Router.routing( new Routes() ) );
+        yoseServer.start();
     }
 
     @AfterClass
-    public static void stopServer() {
-        server.stop();
+    public static void stopServer() throws Exception {
+        yoseServer.stop();
     }
 }

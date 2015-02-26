@@ -8,7 +8,7 @@ import yose.http.routing.Router;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-public class SunHttpServer implements Server {
+public class SunHttpServer implements YoseServer {
 
     private final HttpServer server;
     private Router router;

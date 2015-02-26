@@ -6,6 +6,7 @@ import support.YoseChallenge;
 import yose.http.HttpResponse;
 import yose.support.FileContent;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static support.HttpGetRequest.get;
@@ -26,7 +27,7 @@ public class JsTest extends YoseChallenge {
 
     @Test
     public void answersWithJs() throws Exception {
-        assertThat( response.contentType(), equalTo( "application/javascript" ) );
+        assertThat( response.contentType(), containsString( "application/javascript" ) );
     }
 
     @Test
