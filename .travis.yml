@@ -15,4 +15,4 @@ deploy:
   app: ericminio-yose-java
 
 after_deploy:
-  - if [ -n "`curl -s https://ericminio-yose-java.herokuapp.com/any`" ]; then echo 0; else echo 1; fi
+  - ./test.deploy.sh
