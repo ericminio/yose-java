@@ -39,17 +39,6 @@ public class RouterTest {
     }
 
     @Test
-    public void returnsFirstEndpointOfTheFirstMatchingRequest() {
-        Endpoint first = request -> null;
-        Endpoint second = request -> null;
-        routes.put( request -> request.path.equals( "/library" ), first );
-        routes.put( request -> request.path.equals( "/library" ), second );
-        request.path = "/library";
-
-        assertThat( router.firstEndpointMatching( request ), equalTo( first ) );
-    }
-
-    @Test
     public void returnsNotFoundWhenNothingMatchesRequest() {
         Endpoint library = request -> null;
         routes.put( request -> request.path.equals( "/library" ), library );
