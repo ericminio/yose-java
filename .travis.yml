@@ -13,3 +13,6 @@ deploy:
   provider: heroku
   api_key: d75f2dcabe885b4b88e4cfbd62fd3916ea3b3fbd
   app: ericminio-yose-java
+
+after_deploy:
+  - if [ -n "`curl -s https://ericminio-yose-java.herokuapp.com/any`" ]; then echo 0; else echo 1; fi
