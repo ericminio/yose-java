@@ -1,6 +1,7 @@
 .gradle
 .idea
-yose-java.iml
+*.iml
 build
 out
 node_modules
+npm-debug.log
